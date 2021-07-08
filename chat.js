@@ -15,14 +15,16 @@ function log_out(){
 }
 
 function add_room(){
-    room_name = document.getElementById("roomname").value;
+    
+  window.location = "chat_page.html"
+
+  roomname = document.getElementById("roomname").value;
     firebase.database().ref("/").child(room_name).update({
       purpose:"adding room name"
     });
     localStorage.setItem("room_name", room_name);
-  
-    window.location = "chat_page.html";
   }
+
 
   function getData() {firebase.database().ref("/").on('value',
 function(snapshot) {document.getElementById("output").innerHTML =
